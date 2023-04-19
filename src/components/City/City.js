@@ -3,10 +3,10 @@ import './City.css';
 
 import Weather from "../Weather/Weather";
 
-const City = () => {
+const City = ({ weather }) => {
   return (
     <section>
-
+      <Weather humidity={weather.humidity} temp={weather.temperature} uvIndex={weather.uvIndex} weatherCode={weather.weatherCode}/>
     </section>
   );
 };
