@@ -1,0 +1,14 @@
+.app-home {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+@media screen and (max-width: 52rem) {
+  .app-home {
+    margin-top: 25%;
+    gap: 1rem;
+  }
+}
