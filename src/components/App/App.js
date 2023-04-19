@@ -7,12 +7,19 @@ import Search from '../Search/Search';
 import City from '../City/City';
 
 const App = () => {
+  const [location, setLocation] = useState('');
+
+  const cleanLocation = searchLocation => {
+    const cleaned = searchLocation.toLowerCase().replace(/\s+/g, '');
+    setLocation(cleaned);
+  };
+
   return (
     <Route exact path='/' render={() => {
       return (
         <main className='app-home'>
           <Header />
-          <Search />
+          <Search setSearchLocation={cleanLocation}/>
         </main>
       );
     }} />
