@@ -3,12 +3,12 @@
   "name": "FurCast",
   "icons": [
     {
-      "src": "./assets/furcast-logo.png",
+      "src": "./manifest-assets/furcast-logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./assets/furcast-logo.png",
+      "src": "./manifest-assets/furcast-logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }

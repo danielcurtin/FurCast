@@ -1,0 +1,9 @@
+.home-logo {
+  height: 50%;
+}
+
+@media screen and (max-width: 52rem) {
+  .home-logo {
+    height: 40%;
+  }
+}

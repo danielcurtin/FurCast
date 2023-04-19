@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 
 import Header from '../Header/Header';
@@ -7,9 +8,14 @@ import City from '../City/City';
 
 const App = () => {
   return (
-    <main>
-
-    </main>
+    <Route exact path='/' render={() => {
+      return (
+        <main className='app-home'>
+          <Header />
+          <Search />
+        </main>
+      );
+    }} />
   );
 };
 
