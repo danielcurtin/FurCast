@@ -12,10 +12,8 @@ const Header = ({ page }) => {
   } else {
     return (
       <header className="city-header">
-        <div className="city-header-items">
-          <img src={iconLogo} alt='Cartoon style blue cloud with a white pawprint on top of it, with a yellow sun peeking over the right side of the cloud.'></img>
-          <h1 className="current-city">Weather for <span>{page}</span></h1>
-        </div>
+        <img src={iconLogo} alt='Cartoon style blue cloud with a white pawprint on top of it, with a yellow sun peeking over the right side of the cloud.'></img>
+        <h1 className="current-city">Weather for <span>{page}</span></h1>
       </header>
     );
   }

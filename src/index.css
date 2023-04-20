@@ -1,6 +1,7 @@
 body {
   height: 100vh;
   margin: 0;
+  font-family: 'DynaPuff', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(#005386, #000b25);

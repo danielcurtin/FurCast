@@ -12,35 +12,23 @@
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-sizing: border-box;
-}
-
-.city-header-items {
-  height: 100%;
-  width: 62%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-size: clamp(0.8rem, 2vw, 1.8rem);
   text-align: center;
-  margin-left: 1%;
+  position: relative;
 }
 
-.city-header-items > img {
+.city-header > img {
   height: 100%;
+  left: 1%;
+  position: absolute;
 }
 
-.city-header-items > h1 > span {
+.city-header > h1 > span {
   text-transform: capitalize;
 }
 
 @media screen and (max-width: 52rem) {
   .home-logo {
     height: 40%;
-  }
-}
-
-@media screen and (max-width: 31rem) {
-  .city-header-items {
-    width: 75%;
   }
 }
