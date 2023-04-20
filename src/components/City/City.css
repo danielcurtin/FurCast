@@ -1,0 +1,9 @@
+.city-page {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 7vh;
+  background-size: cover;
+  filter: blur(0px);
+}

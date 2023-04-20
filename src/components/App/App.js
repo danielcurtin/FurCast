@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 
 import getWeather from '../../api-calls';
@@ -45,24 +45,18 @@ const App = () => {
   }, [weather])
 
   return (
-    <main>
+    <Switch>
       <Route exact path='/' render={() => {
         return (
-          <section className='app-home'>
-            <Header />
+          <main className='app-home'>
+            <Header page={'home'}/>
             <Search searchLocation={cleanSearch} />
             {error && <Error attempt={search}/>}
-          </section>
+          </main>
         );
       }} />
-      <Route exact path='/city/:city' render={() => {
-        return (
-          <section className='city-weather'>
-            <City weather={weather}/>
-          </section>
-        );
-      }}/>
-    </main>
+      <Route exact path='/city/:city' render={() => <City weather={weather} city={search}/>}/>
+    </Switch>
   );
 };
 

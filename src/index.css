@@ -6,11 +6,13 @@ body {
   background: linear-gradient(#005386, #000b25);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #root {
   height: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
 }
 
 button {

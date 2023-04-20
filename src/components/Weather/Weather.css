@@ -1,0 +1,103 @@
+.weather-data {
+  height: 75vh;
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  gap: 8vh;
+  background: rgba(5, 0, 74, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.styling-break {
+  width: 80%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weather-icon {
+  font-size: clamp(3rem, 10vw, 9rem);
+  margin-bottom: 1rem;
+}
+
+.temp {
+  font-size: clamp(1.5rem, 4vw, 5rem);
+}
+
+.weather-type,
+.weather-note {
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+
+.precip-chance,
+.humidity,
+.uv-index {
+  font-size: clamp(0.75rem, 2vw, 1.5rem)
+}
+
+.line-break {
+  width: 75%;
+  border-bottom: 1px solid white;
+}
+
+.deeper-data > h2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.roam-free::after {
+  content: '✅';
+  margin-left: 5px;
+}
+
+.stay-shady::after {
+  content: '🧢';
+  margin-left: 5px;
+}
+
+.careful::after {
+  content: '🔥';
+  margin-left: 5px;
+}
+
+.weather-note {
+  max-width: 80%;
+  text-align: center;
+}
+
+
+/* ---------- Icon styling ---------- */
+
+.fa-sun {
+  color: yellow;
+  text-shadow: 0px 0px 10px yellow;
+}
+
+.fa-cloud {
+  color: silver;
+  text-shadow: 0px 0px 10px white;
+}
+
+.fa-snowflake {
+  color: white;
+  text-shadow: 0px 0px 10px silver;
+}
+
+.fa-cloud-rain {
+  color: silver;
+  text-shadow: 0px 0px 10px lightblue;
+}
+
+.fa-cloud-bolt {
+  color: silver;
+  text-shadow: 0px 0px 10px yellow;
+}
