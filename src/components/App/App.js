@@ -11,7 +11,7 @@ import Error from '../Error/Error';
 
 const App = () => {
   const history = useHistory();
-  
+
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
   const [weather, setWeather] = useState({});
@@ -34,9 +34,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (location) {
-      // searchForWeather();
-    };
+    // if (location) searchForWeather();
   }, [location])
 
   //temp for weather data visualization
