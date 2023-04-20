@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import './App.css';
 
 import getWeather from '../../api-calls';
@@ -7,28 +7,39 @@ import getWeather from '../../api-calls';
 import Header from '../Header/Header';
 import Search from '../Search/Search';
 import City from '../City/City';
+import Error from '../Error/Error';
 
 const App = () => {
+  const history = useHistory();
+
+  const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
   const [weather, setWeather] = useState({});
+  const [error, setError] = useState(false);
+
+  const cleanSearch = userSearch => {
+    setSearch(userSearch);
+    setLocation(userSearch.toLowerCase().replace(/\s+/g, ''));
+  }
 
   const searchForWeather = () => {
+    setError(false);
+
     getWeather(location)
     .then(res => {
       setWeather(res.data.values);
+      history.push(`/city/${location}`)
     })
-    .catch(err => console.log('Error: ', err.message));
+    .catch(() => setError(true));
   };
 
   useEffect(() => {
-    if(location) {
-      // searchForWeather();
-    };
+    // if (location) searchForWeather();
   }, [location])
 
   //temp for weather data visualization
   useEffect(() => {
-    if(Object.keys(weather).length) {
+    if (Object.keys(weather).length) {
       console.log(weather)
     };
   }, [weather])
@@ -39,7 +50,8 @@ const App = () => {
         return (
           <section className='app-home'>
             <Header />
-            <Search setSearchLocation={setLocation}/>
+            <Search searchLocation={cleanSearch} />
+            {error && <Error attempt={search}/>}
           </section>
         );
       }} />
