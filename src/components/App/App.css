@@ -19,6 +19,30 @@
   z-index: -1;
 }
 
+.bad-path {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  color: white;
+  text-shadow: 0px 0px 10px black;
+  font-size: 2rem;
+}
+
+.bad-path-button {
+  height: 10%;
+  width: 10%;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(5, 0, 74, 0.7);
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0px 3px 10px rgba(255, 255, 255, 1);
+}
+
 @media screen and (max-width: 89rem) {
   .home-bg {
     height: 150%;

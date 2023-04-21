@@ -17,15 +17,15 @@ const App = () => {
 
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
-  const [weather, setWeather] = useState(sanDiegoWeather);
-  const [weatherType, setWeatherType] = useState(weatherCodes[weather.weatherCode]);
+  const [weather, setWeather] = useState({});
+  const [weatherType, setWeatherType] = useState('');
   const [error, setError] = useState(false);
 
   const cleanSearch = (event, userSearch) => {
     event.preventDefault();
     setSearch(userSearch);
     setLocation(userSearch.toLowerCase().trim().replace(/\s+/g, '%20'));
-  }
+  };
 
   const searchForWeather = () => {
     setError(false);
@@ -33,26 +33,14 @@ const App = () => {
     getWeather(location)
     .then(res => {
       setWeather(res.data.values);
-      getWeatherType();
-      history.push(`/city/${location}`)
+      setWeatherType(weatherCodes[res.data.values.weatherCode]);
     })
     .catch(() => setError(true));
   };
 
-  const getWeatherType = () => {
-    setWeatherType(weatherCodes[weather.weatherCode])
-  };
+  useEffect(() => { if (weatherType) history.push(`/city/${location}`) }, [weather]);
 
-  useEffect(() => {
-    if (location) searchForWeather();
-  }, [location])
-
-  //temp for weather data visualization
-  useEffect(() => {
-    if (Object.keys(weather).length) {
-      console.log(weather)
-    };
-  }, [weather])
+  useEffect(() => { if (location) searchForWeather() }, [location]);
 
   return (
     <Switch>
@@ -67,6 +55,14 @@ const App = () => {
         );
       }} />
       <Route exact path='/city/:city' render={() => <City weather={weather} type={weatherType} city={search}/>}/>
+      <Route path='*' render={() => {
+        return (
+          <section className='bad-path'>
+            <h1 className='bad-path-text'>Oops! Something went wrong.</h1>
+            <button className='bad-path-button' onClick={() => history.push('/')}>Home</button>
+          </section>
+        );
+      }} />
     </Switch>
   );
 };

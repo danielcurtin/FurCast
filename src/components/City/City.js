@@ -14,6 +14,8 @@ import fogBg from '../../assets/weather-bgs/foggy-bg.jpeg';
 const City = ({ weather, type, city }) => {
 
   const pickBg = () => {
+    if (!type) return;
+    
     if (type.includes('Sunny') || type.includes('Clear')) {
       return sunBg;
     } else if (type.includes('Cloudy')) {
