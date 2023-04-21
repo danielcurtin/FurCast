@@ -33,7 +33,7 @@ const Weather = ({ humidity, temp, uvIndex, precipChance, type }) => {
     if (temp > 72) {
       return 'Watch out for heatstroke, and pavement could be hot on paws!';
     } else if (temp < 20) {
-      return 'It\'s pretty cold for the average dog - unless they prefer temperatures like this, limit to in & out until it warms up.'
+      return 'It\'s pretty cold for the average dog - unless they prefer temperatures like this, limit to in & out until it warms up.';
     } else if (temp < 45) {
       return 'Small or Thin Coat dogs might get cold. Maybe only 15 minutes?';
     } else if (type.includes('Sunny') || type.includes('Clear')) {
@@ -42,6 +42,8 @@ const Weather = ({ humidity, temp, uvIndex, precipChance, type }) => {
       return 'It\'s not all that nice out... but it\'s up to you.';
     } else if (type.includes('Fog')) {
       return 'If you can see your surroundings, go for it!';
+    } else if (type.includes('Cloudy')) {
+      return 'A couple clouds never hurt anyone!';
     };
   };
 

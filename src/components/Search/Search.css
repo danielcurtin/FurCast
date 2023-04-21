@@ -43,9 +43,11 @@
   .search {
     width: 85%;
   }
+}
 
+@media screen and (max-height: 40rem) {
   .search-bar,
   .search-button {
-    height: 35%;
+    height: 3rem;
   }
 }

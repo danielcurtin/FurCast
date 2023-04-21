@@ -1,6 +1,6 @@
 .weather-data {
   height: 75vh;
-  width: 50%;
+  width: 65%;
   display: flex;
   flex-flow: column;
   color: white;
@@ -24,23 +24,23 @@
 }
 
 .weather-icon {
-  font-size: clamp(3rem, 10vw, 9rem);
+  font-size: clamp(3rem, 10vw, 8rem);
   margin-bottom: 1rem;
 }
 
 .temp {
-  font-size: clamp(1.5rem, 4vw, 5rem);
+  font-size: clamp(1.5rem, 8vw, 4.5rem);
 }
 
 .weather-type,
 .weather-note {
-  font-size: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 4vw, 2rem);
 }
 
 .precip-chance,
 .humidity,
 .uv-index {
-  font-size: clamp(0.75rem, 2vw, 1.5rem)
+  font-size: clamp(0.75rem, 3vw, 1.5rem)
 }
 
 .line-break {
@@ -70,9 +70,131 @@
 }
 
 .weather-note {
-  max-width: 80%;
+  max-width: 85%;
   text-align: center;
 }
+
+@media screen and (max-height: 50rem) {
+  .weather-data {
+    flex-flow: row wrap;
+    column-gap: 5vh;
+    row-gap: 0;
+  }
+
+  .styling-break {
+    width: 45%;
+  }
+  
+  .weather-icon {
+    font-size: clamp(3rem, 12vh, 8rem);
+    margin-bottom: 0;
+  }
+
+  .temp {
+    font-size: clamp(2rem, 8vh, 6rem);
+  }
+
+  .weather-type,
+  .weather-note {
+    font-size: clamp(1.1rem, 4vh, 3rem);
+  }
+
+  .precip-chance,
+  .humidity,
+  .uv-index {
+    font-size: clamp(0.8rem, 3vh, 1.5rem);
+  }
+}
+
+@media screen and (max-width: 34rem) and (min-height: 41rem) {
+  .styling-break {
+    width: 80%;
+  }
+  
+  .weather-icon {
+    font-size: 4rem;
+  }
+
+  .temp {
+    font-size: 2.2rem;
+  }
+
+  .weather-type,
+  .weather-note {
+    font-size: 1.2rem;
+  }
+
+  .precip-chance,
+  .humidity,
+  .uv-index {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 18rem) {
+  .weather-icon {
+    font-size: 3rem;
+  }
+
+  .temp {
+    font-size: 1.75rem;
+  }
+
+  .weather-type,
+  .weather-note {
+    font-size: 1rem;
+  }
+
+  .precip-chance,
+  .humidity,
+  .uv-index {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 160rem) and (min-height: 80rem) {
+  .weather-icon {
+    font-size: 12rem;
+  }
+
+  .temp {
+    font-size: 7rem;
+  }
+
+  .weather-type,
+  .weather-note {
+    font-size: 3rem;
+  }
+
+  .precip-chance,
+  .humidity,
+  .uv-index {
+    font-size: 2.5rem;
+  }
+}
+
+
+
+/* @media screen and (max-height: 50rem) and (min-width: 80rem) {
+  .weather-icon {
+    font-size: 4.5rem;
+  }
+
+  .temp {
+    font-size: 3rem;
+  }
+
+  .weather-type,
+  .weather-note {
+    font-size: 1.8rem;
+  }
+
+  .precip-chance,
+  .humidity,
+  .uv-index {
+    font-size: 1.2rem;
+  }
+} */
 
 
 /* ---------- Icon styling ---------- */

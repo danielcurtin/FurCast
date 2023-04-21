@@ -4,7 +4,7 @@
 }
 
 .city-header {
-  height: 7vh;
+  height: 8vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -33,5 +33,21 @@
 @media screen and (max-width: 52rem) {
   .home-logo {
     height: 40%;
+  }
+}
+
+@media screen and (max-height: 38rem) {
+  .city-header {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 18rem) {
+  .city-header {
+    justify-content: flex-end;
+  }
+
+  .city-header > h1 {
+    margin-right: 5%;
   }
 }

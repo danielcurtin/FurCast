@@ -36,3 +36,9 @@
     width: 300%;
   }
 }
+
+@media screen and (max-height: 40rem) {
+  .app-home {
+    margin-top: 0;
+  }
+}
