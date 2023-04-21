@@ -6,9 +6,33 @@
   gap: 2.5rem;
 }
 
+.home-bg {
+  height: 100%;
+  width: 100%;
+  background-image: url('../../assets/pawprint-trail.png');
+  background-size: 90%;
+  scale: 1.2;
+  rotate: -40deg;
+  background-position: 50% 0%;
+  opacity: 0.5;
+  position: absolute;
+  z-index: -1;
+}
+
+@media screen and (max-width: 89rem) {
+  .home-bg {
+    height: 150%;
+    width: 150%;
+  }
+}
+
 @media screen and (max-width: 52rem) {
   .app-home {
     margin-top: 25%;
     gap: 1rem;
+  }
+
+  .home-bg {
+    width: 300%;
   }
 }
