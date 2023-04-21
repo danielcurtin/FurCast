@@ -14,7 +14,7 @@ const Weather = ({ humidity, temp, uvIndex, precipChance, type }) => {
   };
 
   const getWeatherIcon = () => {
-    if (type.includes('Sunny')) {
+    if (type.includes('Sunny') || type.includes('Clear')) {
       return 'fa-sun';
     } else if (type.includes('Cloudy')) {
       return 'fa-cloud';
