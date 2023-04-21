@@ -21,9 +21,10 @@ const App = () => {
   const [weatherType, setWeatherType] = useState(weatherCodes[weather.weatherCode]);
   const [error, setError] = useState(false);
 
-  const cleanSearch = userSearch => {
+  const cleanSearch = (event, userSearch) => {
+    event.preventDefault();
     setSearch(userSearch);
-    setLocation(userSearch.toLowerCase().replace(/\s+/g, ''));
+    setLocation(userSearch.toLowerCase().trim().replace(/\s+/g, '%20'));
   }
 
   const searchForWeather = () => {
