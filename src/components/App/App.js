@@ -9,8 +9,7 @@ import Header from '../Header/Header';
 import Search from '../Search/Search';
 import City from '../City/City';
 import Error from '../Error/Error';
-
-import { sanDiegoWeather } from '../../mock-data';
+import BadPath from '../BadPath/BadPath';
 
 const App = () => {
   const history = useHistory();
@@ -21,8 +20,7 @@ const App = () => {
   const [weatherType, setWeatherType] = useState('');
   const [error, setError] = useState(false);
 
-  const cleanSearch = (event, userSearch) => {
-    event.preventDefault();
+  const cleanSearch =  userSearch => {
     setSearch(userSearch);
     setLocation(userSearch.toLowerCase().trim().replace(/\s+/g, '%20'));
   };
@@ -38,6 +36,11 @@ const App = () => {
     .catch(() => setError(true));
   };
 
+  const resetCity = () => {
+    setSearch('');
+    setLocation('');
+  };
+
   useEffect(() => { if (weatherType) history.push(`/city/${location}`) }, [weather]);
 
   useEffect(() => { if (location) searchForWeather() }, [location]);
@@ -47,22 +50,21 @@ const App = () => {
       <Route exact path='/' render={() => {
         return (
           <main className='app-home'>
-            <Header page={'home'}/>
+            <Header page={'home'} />
             <Search searchLocation={cleanSearch} />
-            {error && <Error attempt={search}/>}
+            {error && <Error attempt={search} />}
             <div className='home-bg'></div>
           </main>
         );
       }} />
-      <Route exact path='/city/:city' render={() => <City weather={weather} type={weatherType} city={search}/>}/>
-      <Route path='*' render={() => {
-        return (
-          <section className='bad-path'>
-            <h1 className='bad-path-text'>Oops! Something went wrong.</h1>
-            <button className='bad-path-button' onClick={() => history.push('/')}>Home</button>
-          </section>
-        );
+      <Route exact path='/city/:city' render={({ match }) => {
+        if (match.params.city === location) {
+          return <City weather={weather} type={weatherType} city={search} resetCity={resetCity} />;
+        } else {
+          return <BadPath history={history} resetCity={resetCity} />;
+        };
       }} />
+      <Route path='*' render={() => <BadPath history={history} resetCity={resetCity}/>} />
     </Switch>
   );
 };
