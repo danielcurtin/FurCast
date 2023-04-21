@@ -29,6 +29,22 @@ const Weather = ({ humidity, temp, uvIndex, precipChance, type }) => {
     };
   };
 
+  const getNote = () => {
+    if (temp > 72) {
+      return 'Watch out for heatstroke, and pavement could be hot on paws!';
+    } else if (temp < 20) {
+      return 'It\'s pretty cold for the average dog - unless they prefer temperatures like this, limit to in & out until it warms up.'
+    } else if (temp < 45) {
+      return 'Small or Thin Coat dogs might get cold. Maybe only 15 minutes?';
+    } else if (type.includes('Sunny') || type.includes('Clear')) {
+      return 'It\'s nice out! Remember to stay hydrated!';
+    } else if (type.includes('Snow') || type.includes('Flurries') || type.includes('Ice') || type.includes('Rain') || type.includes('Drizzle') || type.includes('Thunderstorm')) {
+      return 'It\'s not all that nice out... but it\'s up to you.';
+    } else if (type.includes('Fog')) {
+      return 'If you can see your surroundings, go for it!';
+    };
+  };
+
   return (
     <section className="weather-data">
       <div className="styling-break">
@@ -42,7 +58,7 @@ const Weather = ({ humidity, temp, uvIndex, precipChance, type }) => {
         <h2 className="humidity">Humidity <span>{humidity}%</span></h2>
         <h2 className="uv-index">UV Index <span className={checkUv()}>{uvIndex}</span></h2>
       </div>
-      <h3 className="weather-note">Careful, pavement could be hot on paws right now!</h3>
+      <h3 className="weather-note">{getNote()}</h3>
     </section>
   );
 };
