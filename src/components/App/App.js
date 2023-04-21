@@ -58,7 +58,7 @@ const App = () => {
         );
       }} />
       <Route exact path='/city/:city' render={({ match }) => {
-        if (match.params.city === location) {
+        if (match.params.city.replace(/\s+/g, '%20') === location) {
           return <City weather={weather} type={weatherType} city={search} resetCity={resetCity} />;
         } else {
           return <BadPath history={history} resetCity={resetCity} />;
