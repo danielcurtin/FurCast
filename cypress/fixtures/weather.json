@@ -1,4 +1,4 @@
-const sanDiegoWeather = {
+{
   "cloudBase": 0.79,
   "cloudCeiling": null,
   "cloudCover": 41,
@@ -19,6 +19,4 @@ const sanDiegoWeather = {
   "windDirection": 300.63,
   "windGust": 11.88,
   "windSpeed": 10.77
-};
-
-export { sanDiegoWeather };
+}
