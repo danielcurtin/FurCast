@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Route, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 
 import getWeather from '../../api-calls';
+import weatherCodes from '../../weather-codes';
 
 import Header from '../Header/Header';
 import Search from '../Search/Search';
 import City from '../City/City';
 import Error from '../Error/Error';
 
+import { sanDiegoWeather } from '../../mock-data';
+
 const App = () => {
   const history = useHistory();
 
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState(sanDiegoWeather);
+  const [weatherType, setWeatherType] = useState(weatherCodes[weather.weatherCode]);
   const [error, setError] = useState(false);
 
   const cleanSearch = userSearch => {
@@ -28,13 +32,18 @@ const App = () => {
     getWeather(location)
     .then(res => {
       setWeather(res.data.values);
+      getWeatherType();
       history.push(`/city/${location}`)
     })
     .catch(() => setError(true));
   };
 
+  const getWeatherType = () => {
+    setWeatherType(weatherCodes[weather.weatherCode])
+  };
+
   useEffect(() => {
-    // if (location) searchForWeather();
+    if (location) searchForWeather();
   }, [location])
 
   //temp for weather data visualization
@@ -45,24 +54,19 @@ const App = () => {
   }, [weather])
 
   return (
-    <main>
+    <Switch>
       <Route exact path='/' render={() => {
         return (
-          <section className='app-home'>
-            <Header />
+          <main className='app-home'>
+            <Header page={'home'}/>
             <Search searchLocation={cleanSearch} />
             {error && <Error attempt={search}/>}
-          </section>
+            <div className='home-bg'></div>
+          </main>
         );
       }} />
-      <Route exact path='/city/:city' render={() => {
-        return (
-          <section className='city-weather'>
-            <City weather={weather}/>
-          </section>
-        );
-      }}/>
-    </main>
+      <Route exact path='/city/:city' render={() => <City weather={weather} type={weatherType} city={search}/>}/>
+    </Switch>
   );
 };
 

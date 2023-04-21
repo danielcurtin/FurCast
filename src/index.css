@@ -1,16 +1,21 @@
 body {
   height: 100vh;
   margin: 0;
+  font-family: 'DynaPuff', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(#005386, #000b25);
+  background: linear-gradient(#00d3b7, #00267e);
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 #root {
   height: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 
 button {
