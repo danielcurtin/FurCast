@@ -11,9 +11,11 @@ import snowBg from '../../assets/weather-bgs/snowy-bg.jpeg';
 import stormBg from '../../assets/weather-bgs/thunderstorm-bg.jpeg';
 import fogBg from '../../assets/weather-bgs/foggy-bg.jpeg';
 
-const City = ({ weather, type, city }) => {
+const City = ({ weather, type, city, resetCity }) => {
 
   const pickBg = () => {
+    if (!type) return;
+
     if (type.includes('Sunny') || type.includes('Clear')) {
       return sunBg;
     } else if (type.includes('Cloudy')) {
@@ -31,7 +33,7 @@ const City = ({ weather, type, city }) => {
 
   return (
     <section className="city-page" style={{backgroundImage: `url(${pickBg()})`}}>
-      <Header page={city}/>
+      <Header page={city} resetCity={resetCity}/>
       <Weather humidity={weather.humidity} temp={weather.temperature} uvIndex={weather.uvIndex} precipChance={weather.precipitationProbability} type={type}/>
     </section>
   );

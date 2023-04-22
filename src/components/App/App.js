@@ -9,23 +9,21 @@ import Header from '../Header/Header';
 import Search from '../Search/Search';
 import City from '../City/City';
 import Error from '../Error/Error';
-
-import { sanDiegoWeather } from '../../mock-data';
+import BadPath from '../BadPath/BadPath';
 
 const App = () => {
   const history = useHistory();
 
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
-  const [weather, setWeather] = useState(sanDiegoWeather);
-  const [weatherType, setWeatherType] = useState(weatherCodes[weather.weatherCode]);
+  const [weather, setWeather] = useState({});
+  const [weatherType, setWeatherType] = useState('');
   const [error, setError] = useState(false);
 
-  const cleanSearch = (event, userSearch) => {
-    event.preventDefault();
+  const cleanSearch =  userSearch => {
     setSearch(userSearch);
     setLocation(userSearch.toLowerCase().trim().replace(/\s+/g, '%20'));
-  }
+  };
 
   const searchForWeather = () => {
     setError(false);
@@ -33,40 +31,40 @@ const App = () => {
     getWeather(location)
     .then(res => {
       setWeather(res.data.values);
-      getWeatherType();
-      history.push(`/city/${location}`)
+      setWeatherType(weatherCodes[res.data.values.weatherCode]);
     })
     .catch(() => setError(true));
   };
 
-  const getWeatherType = () => {
-    setWeatherType(weatherCodes[weather.weatherCode])
+  const resetCity = () => {
+    setSearch('');
+    setLocation('');
   };
 
-  useEffect(() => {
-    if (location) searchForWeather();
-  }, [location])
+  useEffect(() => { if (weatherType) history.push(`/city/${location}`) }, [weather]);
 
-  //temp for weather data visualization
-  useEffect(() => {
-    if (Object.keys(weather).length) {
-      console.log(weather)
-    };
-  }, [weather])
+  useEffect(() => { if (location) searchForWeather() }, [location]);
 
   return (
     <Switch>
       <Route exact path='/' render={() => {
         return (
           <main className='app-home'>
-            <Header page={'home'}/>
+            <Header page={'home'} />
             <Search searchLocation={cleanSearch} />
-            {error && <Error attempt={search}/>}
+            {error && <Error attempt={search} />}
             <div className='home-bg'></div>
           </main>
         );
       }} />
-      <Route exact path='/city/:city' render={() => <City weather={weather} type={weatherType} city={search}/>}/>
+      <Route exact path='/city/:city' render={({ match }) => {
+        if (match.params.city.replace(/\s+/g, '%20') === location) {
+          return <City weather={weather} type={weatherType} city={search} resetCity={resetCity} />;
+        } else {
+          return <BadPath history={history} resetCity={resetCity} />;
+        };
+      }} />
+      <Route path='*' render={() => <BadPath history={history} resetCity={resetCity}/>} />
     </Switch>
   );
 };
