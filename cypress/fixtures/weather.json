@@ -1,22 +1,33 @@
 {
-  "cloudBase": 0.79,
-  "cloudCeiling": null,
-  "cloudCover": 41,
-  "dewPoint": 47.86,
-  "freezingRainIntensity": 0,
-  "humidity": 52,
-  "precipitationProbability": 0,
-  "pressureSurfaceLevel": 29.88,
-  "rainIntensity": 0,
-  "sleetIntensity": 0,
-  "snowIntensity": 0,
-  "temperature": 65.97,
-  "temperatureApparent": 65.97,
-  "uvHealthConcern": 2,
-  "uvIndex": 5,
-  "visibility": 9.94,
-  "weatherCode": 1101,
-  "windDirection": 300.63,
-  "windGust": 11.88,
-  "windSpeed": 10.77
+  "data": {
+    "time": "2023-04-22T22:17:00Z",
+    "values": {
+      "cloudBase": 1.27,
+      "cloudCeiling": 1.27,
+      "cloudCover": 99,
+      "dewPoint": 47.53,
+      "freezingRainIntensity": 0,
+      "humidity": 35,
+      "precipitationProbability": 0,
+      "pressureSurfaceLevel": 29.67,
+      "rainIntensity": 0,
+      "sleetIntensity": 0,
+      "snowIntensity": 0,
+      "temperature": 76.66,
+      "temperatureApparent": 76.66,
+      "uvHealthConcern": 2,
+      "uvIndex": 5,
+      "visibility": 9.94,
+      "weatherCode": 1001,
+      "windDirection": 261.38,
+      "windGust": 8.25,
+      "windSpeed": 7.55
+    }
+  },
+  "location": {
+    "lat": 32.7174186706543,
+    "lon": -117.16277313232422,
+    "name": "San Diego, San Diego County, CAL Fire Southern Region, California, United States",
+    "type": "administrative"
+  }
 }
