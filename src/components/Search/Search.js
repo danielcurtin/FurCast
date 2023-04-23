@@ -15,7 +15,7 @@ const Search = ({ searchLocation }) => {
     <form role="search" className="search">
       <input type="text" className="search-bar" id="searchBar" value={search} onChange={event => setSearch(event.target.value)}></input>
       <button type="submit" className="search-button fa-solid fa-magnifying-glass" onClick={event => trySearch(event)}></button>
-      <label htmlFor="searchBar">Enter City or Zip Code</label>
+      <label htmlFor="searchBar">Enter City</label>
     </form>
   );
 };
