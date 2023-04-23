@@ -1,7 +1,7 @@
 <h1 align=center>🐾 FurCast 🌦️</h1>
 
 ## Abstract
-FurCast is a weather app for dog walkers! A user can enter their city or zipcode, and get their realtime weather information. They'll also get a note about the conditions and how they might affect their pup. IE. Hot weather would warn a user about heatstroke and hot pavement, while cold weather would give a warning toward prolonged exposure for thin coat dogs.
+FurCast is a weather app for dog walkers! A user can enter their city and get their realtime weather information. They'll also get a note about the conditions and how they might affect their pup. IE. Hot weather would warn a user about heatstroke and hot pavement, while cold weather would give a warning toward prolonged exposure for thin coat dogs.
 
 ## App Usage
 This app uses a Secret API Key so it's unable to be run locally. However, it can be used [here](https://danielcurtin.github.io/FurCast/)
