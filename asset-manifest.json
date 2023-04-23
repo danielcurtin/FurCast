@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/FurCast/static/css/main.fa3980bf.css",
+    "main.js": "/FurCast/static/js/main.b49109f6.js",
+    "static/media/thunderstorm-bg.jpeg": "/FurCast/static/media/thunderstorm-bg.0166b9619e496bda0873.jpeg",
+    "static/media/snowy-bg.jpeg": "/FurCast/static/media/snowy-bg.b4aa323b71d8d9e749b6.jpeg",
+    "static/media/sunny-bg.jpeg": "/FurCast/static/media/sunny-bg.a54593325a8dddaa6143.jpeg",
+    "static/media/rainy-bg.jpg": "/FurCast/static/media/rainy-bg.85316bd51fcc8106f9ff.jpg",
+    "static/media/furcast-text.png": "/FurCast/static/media/furcast-text.69da32dd37f638400426.png",
+    "static/media/foggy-bg.jpeg": "/FurCast/static/media/foggy-bg.2e546875a31aa5131862.jpeg",
+    "static/media/furcast-logo.png": "/FurCast/static/media/furcast-logo.c3da578afefa5bb666f5.png",
+    "static/media/pawprint-trail.png": "/FurCast/static/media/pawprint-trail.3bda31c386d457cb8e0f.png",
+    "index.html": "/FurCast/index.html",
+    "main.fa3980bf.css.map": "/FurCast/static/css/main.fa3980bf.css.map",
+    "main.b49109f6.js.map": "/FurCast/static/js/main.b49109f6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa3980bf.css",
+    "static/js/main.b49109f6.js"
+  ]
+}
