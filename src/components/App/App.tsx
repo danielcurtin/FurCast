@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 
-import getWeather from '../../api-calls';
-import weatherCodes from '../../weather-codes';
+import getWeather from 'src/api-calls';
+import weatherCodes from 'src/weather-codes';
 
 import Header from '../Header/Header';
 import Search from '../Search/Search';
@@ -11,16 +11,20 @@ import City from '../City/City';
 import Error from '../Error/Error';
 import BadPath from '../BadPath/BadPath';
 
+type MatchParams = {
+  match: { params: { city: string } }
+};
+
 const App = () => {
   const history = useHistory();
 
   const [search, setSearch] = useState('');
   const [location, setLocation] = useState('');
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState({ humidity: 0, temperature: 0, uvIndex: 0, precipitationProbability: 0 });
   const [weatherType, setWeatherType] = useState('');
   const [error, setError] = useState(false);
 
-  const cleanSearch =  userSearch => {
+  const cleanSearch = (userSearch: string) => {
     setSearch(userSearch);
     setLocation(userSearch.toLowerCase().trim().replace(/\s+/g, '%20'));
   };
@@ -50,14 +54,14 @@ const App = () => {
       <Route exact path='/' render={() => {
         return (
           <main className='app-home'>
-            <Header page={'home'} />
+            <Header page={'home'} resetCity={resetCity} />
             <Search searchLocation={cleanSearch} />
             {error && <Error attempt={search} />}
             <div className='home-bg'></div>
           </main>
         );
       }} />
-      <Route exact path='/city/:city' render={({ match }) => {
+      <Route exact path='/city/:city' render={({ match }: MatchParams) => {
         if (match.params.city.replace(/\s+/g, '%20') === location) {
           return <City weather={weather} type={weatherType} city={search} resetCity={resetCity} />;
         } else {
