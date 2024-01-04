@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import './Search.css';
 
-const Search = ({ searchLocation }) => {
+type SearchProps = {
+  searchLocation: (search: string) => void
+};
+
+const Search = ({ searchLocation }: SearchProps) => {
   const [search, setSearch] = useState('');
 
-  const trySearch = event => {
+  const trySearch = (event: any) => {
     event.preventDefault();
 
     searchLocation(search);
