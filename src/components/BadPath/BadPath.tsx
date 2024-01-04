@@ -1,7 +1,12 @@
 import React from "react";
 import './BadPath.css';
 
-const BadPath = ({ history, resetCity }) => {
+type BadPathProps = {
+  history: any,
+  resetCity: () => void
+};
+
+const BadPath = ({ history, resetCity }: BadPathProps) => {
   return (
     <section className='bad-path'>
       <h1 className='bad-path-text'>Oops! Something went wrong.</h1>

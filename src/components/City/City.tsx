@@ -11,7 +11,19 @@ import snowBg from '../../assets/weather-bgs/snowy-bg.jpeg';
 import stormBg from '../../assets/weather-bgs/thunderstorm-bg.jpeg';
 import fogBg from '../../assets/weather-bgs/foggy-bg.jpeg';
 
-const City = ({ weather, type, city, resetCity }) => {
+type CityProps = {
+  weather: {
+    humidity: number,
+    temperature: number,
+    uvIndex: number,
+    precipitationProbability: number
+  },
+  type: string,
+  city: string,
+  resetCity: () => void
+};
+
+const City = ({ weather, type, city, resetCity }: CityProps) => {
 
   const pickBg = () => {
     if (!type) return;

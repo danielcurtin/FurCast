@@ -1,7 +1,15 @@
 import React from "react";
 import './Weather.css';
 
-const Weather = ({ humidity, temp, uvIndex, precipChance, type }) => {
+type WeatherProps = {
+  humidity: number,
+  temp: number,
+  uvIndex: number,
+  precipChance: number,
+  type: string
+};
+
+const Weather = ({ humidity, temp, uvIndex, precipChance, type }:WeatherProps) => {
 
   const checkUv = () => {
     if (uvIndex > 7) {
