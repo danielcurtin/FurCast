@@ -5,7 +5,12 @@ import './Header.css';
 import textLogo from '../../assets/furcast-text.png';
 import iconLogo from '../../assets/furcast-logo.png';
 
-const Header = ({ page, resetCity }) => {
+type HeaderProps = {
+  page: string,
+  resetCity: () => void
+};
+
+const Header = ({ page, resetCity }: HeaderProps) => {
   const history = useHistory();
 
   if (page === 'home') {
